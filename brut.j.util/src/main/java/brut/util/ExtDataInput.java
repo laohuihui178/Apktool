@@ -42,11 +42,11 @@ public class ExtDataInput extends DataInputDelegate {
         skipBytes(4);
     }
 
-    public void skipCheckInt(int expected1, int expected2) throws IOException {
+    public void skipCheckInt(int expected1, int expected2, int expected3) throws IOException {
         int got = readInt();
-        if (got != expected1 && got != expected2) {
+        if (got != expected1 && got != expected2 && got != expected3) {
             throw new IOException(String.format(
-                "Expected: 0x%08x or 0x%08x, got: 0x%08x", expected1, expected2, got));
+                "Expected: 0x%08x or 0x%08x or 0x%08x, got: 0x%08x", expected1, expected2, expected3, got));
         }
     }
 
